@@ -1,0 +1,17 @@
+{
+  "name": "dezosignal-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "description": "DezoSignal Android ilovasi (Capacitor) — https://abdulazizjuraev.github.io/dezosignal/ ni ochadi, narxlarni telefon o'zi oladi (CapacitorHttp).",
+  "scripts": {
+    "sync": "npx cap sync android",
+    "apk:release": "npx cap sync android && node scripts/gradle.js assembleRelease"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/core": "^8.5.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.5.2"
+  }
+}

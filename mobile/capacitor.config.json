@@ -1,0 +1,16 @@
+{
+  "appId": "uz.dezomax.signal",
+  "appName": "DezoSignal",
+  "webDir": "www",
+  "server": {
+    "url": "https://abdulazizjuraev.github.io/dezosignal/",
+    "errorPath": "offline.html",
+    "androidScheme": "https"
+  },
+  "android": {
+    "backgroundColor": "#0a0d12"
+  },
+  "plugins": {
+    "CapacitorHttp": { "enabled": true }
+  }
+}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">DezoSignal</string>
+    <string name="title_activity_main">DezoSignal</string>
+    <string name="package_name">uz.dezomax.signal</string>
+    <string name="custom_url_scheme">uz.dezomax.signal</string>
+</resources>

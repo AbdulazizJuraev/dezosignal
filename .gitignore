@@ -1,2 +1,7 @@
 node_modules/
 *.log
+mobile/.tmp/
+mobile/dist/
+mobile/android/keystore.properties
+mobile/android/*.jks
+mobile/android/local.properties
