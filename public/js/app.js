@@ -53,11 +53,9 @@ const sideName = s => s === 'buy' ? 'SOTIB OLISH' : 'SOTISH';
 async function load(sym, src, tf) {
   const key = `${sym}:${tf}`, hit = state.data[key];
   if (hit && Date.now() - hit.at < REFRESH_MS - 2000) return hit;
-  const r = await fetch(`api/candles?src=${src}&symbol=${encodeURIComponent(sym)}&tf=${tf}`);
-  const j = await r.json();
-  if (!r.ok) throw new Error(j.error || 'Xato');
-  if (j.candles.length < 230) throw new Error('Ma’lumot yetarli emas');
-  const v = { candles: j.candles, a: Signal.analyze(j.candles), at: Date.now() };
+  const candles = await fetchCandles(src, sym, tf);   // js/data.js
+  if (candles.length < 230) throw new Error('Ma’lumot yetarli emas');
+  const v = { candles, a: Signal.analyze(candles), at: Date.now() };
   state.data[key] = v;
   return v;
 }
