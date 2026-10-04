@@ -99,6 +99,7 @@ let renderSeq = 0;
 async function renderList() {
   const seq = ++renderSeq;
   const m = MARKETS[state.market];
+  if (!$('#botView').hidden) return;            // «Bot» bo'limi ochiq — ro'yxat chizilmaydi
   document.querySelectorAll('#tabs button').forEach(b => b.classList.toggle('on', b.dataset.market === state.market));
   document.querySelectorAll('#tfs button').forEach(b => b.classList.toggle('on', b.dataset.tf === state.tf));
   const list = $('#list');
@@ -127,7 +128,7 @@ let chart = null;
 function closeDetail() {
   state.open = null;
   if (chart) { chart.remove(); chart = null; }
-  $('#detailView').hidden = true; $('#listView').hidden = false;
+  $('#detailView').hidden = true; $('#listView').hidden = !$('#botView').hidden;
   if (location.hash) history.replaceState(null, '', location.pathname);
 }
 
@@ -269,11 +270,13 @@ function checkNotify(m, results) {
 /* ---------- boshqaruv ---------- */
 $('#tabs').addEventListener('click', e => {
   const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.view === 'bot') { closeDetail(); store.set('view', 'bot'); showBot(true); return; }
+  store.set('view', 'list');
   state.market = b.dataset.market; store.set('market', state.market);
-  closeDetail(); renderList();
+  closeDetail(); showBot(false); renderList();
 });
 $('#tfs').addEventListener('click', e => {
-  const b = e.target.closest('button'); if (!b) return;
+  const b = e.target.closest('button'); if (!b || !$('#botView').hidden) return;
   state.tf = b.dataset.tf; store.set('tf', state.tf);
   const open = state.open;
   renderList();
@@ -287,6 +290,7 @@ function tick() {
   clearTimeout(state.timer);
   renderList().finally(() => { state.timer = setTimeout(tick, REFRESH_MS); });
   if (state.open) openDetail(state.open, true);
+  if (window.botTick) botTick();     // js/bot-ui.js — demo bot har daqiqada narxlarni tekshiradi
 }
 document.addEventListener('visibilitychange', () => { if (!document.hidden) tick(); });
 

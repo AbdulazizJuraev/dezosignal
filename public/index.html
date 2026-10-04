@@ -28,6 +28,7 @@
   <button data-market="crypto">Kripto</button>
   <button data-market="fx">Forex va oltin</button>
   <button data-market="stocks">Aksiyalar</button>
+  <button data-view="bot" class="tab-bot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 4v4M9 13h.01M15 13h.01M9 17h6"/></svg>Bot</button>
 </nav>
 
 <main id="app">
@@ -36,6 +37,7 @@
     <div class="list" id="list"></div>
   </section>
   <section id="detailView" hidden></section>
+  <section id="botView" hidden></section>
 </main>
 
 <footer class="disc">
@@ -48,5 +50,7 @@
 <script src="js/data.js"></script>
 <script src="js/signal.js"></script>
 <script src="js/app.js"></script>
+<script src="js/bot.js"></script>
+<script src="js/bot-ui.js"></script>
 </body>
 </html>

@@ -142,3 +142,61 @@ main { max-width: 1200px; margin: 0 auto; padding: 8px 16px 24px; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .trades th:nth-child(4), .trades td:nth-child(4) { display: none; }
 }
+
+/* ---------- Bot (demo / real) ---------- */
+.tab-bot { display: inline-flex; align-items: center; gap: 6px; }
+.tab-bot svg { width: 16px; height: 16px; }
+.seg { display: inline-flex; background: var(--surface); border: 1px solid var(--line); border-radius: 11px; padding: 3px; margin: 6px 0 12px; }
+.seg button { border: 0; background: none; padding: 7px 22px; border-radius: 8px; font-weight: 700; font-size: 14px; color: var(--dim); }
+.seg button.on { background: var(--surface-2); color: var(--text); box-shadow: 0 1px 0 rgba(255,255,255,.06) inset; }
+.beq-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.beq-top .lbl { display: block; font-size: 12px; color: var(--dim); }
+.beq-val { display: block; font-size: 30px; font-weight: 700; letter-spacing: -.02em; line-height: 1.15; }
+.beq-top em { font-style: normal; font-size: 14px; font-weight: 600; }
+.bbtn { border: 1px solid var(--line); background: var(--surface-2); padding: 10px 16px; border-radius: 10px; font-weight: 700; font-size: 14px; }
+.bbtn.go { background: var(--up); color: #04210e; border-color: var(--up); }
+.bbtn.stop { background: rgba(239, 68, 68, .14); color: #fca5a5; border-color: rgba(239, 68, 68, .4); }
+.bbtn.ghost { background: none; color: var(--dim); }
+.bbtn.sm { padding: 4px 10px; font-size: 12px; width: 100%; }
+.bstatus { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--faint); flex: none; display: inline-block; }
+.dot.on { background: var(--up); box-shadow: 0 0 0 4px rgba(34, 197, 94, .15); animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 50% { box-shadow: 0 0 0 7px rgba(34, 197, 94, 0); } }
+.bh { font-size: 15px; margin: 18px 2px 10px; display: flex; gap: 8px; align-items: baseline; }
+.bh small { color: var(--faint); font-weight: 500; font-size: 12px; }
+.empty { color: var(--faint); font-size: 13px; margin: 0 2px 6px; }
+.bpos { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 14px; }
+.bpos.is-up { border-color: rgba(34, 197, 94, .35); }
+.bpos.is-down { border-color: rgba(239, 68, 68, .35); }
+.bpos .c-levels { margin: 12px 0 0; }
+.bpos .c-levels span:last-child { display: flex; align-items: center; padding: 4px; }
+.bpos-pnl { text-align: right; }
+.bpos-pnl b { display: block; font-size: 16px; }
+.bpos-pnl small { font-size: 12px; }
+.bpos .note { margin-top: 10px; font-size: 12px; }
+.panel.tight { padding: 4px 12px; overflow-x: auto; }
+.panel.tight .trades { margin-top: 0; }
+.bset summary { font-weight: 700; cursor: pointer; }
+.bset form { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 12px; margin-top: 14px; }
+.bset label { display: grid; gap: 5px; font-size: 13px; color: var(--dim); }
+.bset small { color: var(--faint); font-size: 11.5px; }
+.bset input[type=number], .bset select { font: inherit; color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: 9px; padding: 9px 10px; }
+.bset fieldset { border: 1px solid var(--line); border-radius: 10px; padding: 8px 12px; margin: 0; display: grid; gap: 6px; }
+.bset legend { font-size: 13px; color: var(--dim); padding: 0 4px; }
+.bset label.chk { display: flex; align-items: center; gap: 8px; color: var(--text); }
+.bset .brow, .bset .note, .bset label.chk:not(fieldset label) { grid-column: 1 / -1; }
+.brow { display: flex; gap: 10px; flex-wrap: wrap; }
+@media (max-width: 560px) {
+  .beq-top .bbtn { width: 100%; }
+  .trades th:nth-child(3), .trades td:nth-child(3) { white-space: normal; }
+}
+@media (max-width: 560px) {
+  .btrades th:nth-child(4), .btrades td:nth-child(4) { display: table-cell; }
+  .btrades th:nth-child(3), .btrades td:nth-child(3) { display: none; }
+}
+.bstatus { display: block; }
+.bstatus .dot { margin-right: 8px; vertical-align: 1px; }
+@media (max-width: 560px) {
+  .tabs { gap: 6px; }
+  .tabs button { padding: 7px 11px; font-size: 13px; }
+}

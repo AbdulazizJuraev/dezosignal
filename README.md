@@ -19,6 +19,7 @@ Brauzerda: http://localhost:5588 (Node 18+; qo'shimcha paket kerak emas).
 |---|---|
 | `server.js` | `public/` ni beradi + `/api/candles` — Binance (kripto) va Yahoo (forex, oltin, aksiyalar) narxlari, 30 s kesh |
 | `public/js/signal.js` | EMA, RSI, ATR, MACD; signal qoidalari; tarixiy sinov (backtest) |
+| `public/js/bot.js`, `bot-ui.js` | «Bot» bo'limi: Demo — virtual pul bilan avtomatik savdo (kirish, stop, maqsad, ergashuvchi stop, komissiya); Real — hali ulanmagan |
 | `public/js/app.js` | Ro'yxat, grafik (TradingView Lightweight Charts), bildirishnomalar, har 60 s yangilash |
 | `test.js` | `node test.js` — indikator testlari va haqiqiy ma'lumotda sinov (server ishlab turishi kerak) |
 
@@ -31,6 +32,13 @@ Brauzerda: http://localhost:5588 (Node 18+; qo'shimcha paket kerak emas).
 5. **Kuch (0–4):** hajm, EMA200 qiyaligi, RSI oralig'i, narx EMA21 ga nisbatan.
 
 Tarixiy sinov: signaldan keyingi sham ochilishida kirish; bitta shamda stop ham, maqsad ham tegsa — stop deb hisoblanadi.
+
+### Demo bot
+
+- Faqat spot (sotib olish): SOTIB OLISH signalida kiradi; stop-loss, maqsad (1:2) yoki SOTISH signalida chiqadi.
+- Hajm: har savdoda depozitning N % i xavfda (sozlanadi, standart 1%); bitta savdo ≤ depozit / maks. savdolar soni.
+- Narx +1R o'ssa stop zararsiz nuqtaga ko'chadi, +1,5R dan keyin eng yuqori narxdan 1,5 ATR pastda ergashadi.
+- Komissiya 0,1% har tomonga. Hisob qurilmada (localStorage) saqlanadi; ilova ochilganda o'tib ketgan shamlar vaqt tartibida hisoblanadi.
 
 ## Dastur hech qachon
 

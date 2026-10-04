@@ -1,6 +1,6 @@
 /* DezoSignal — ilova qobig'ini keshlaydi (telefonga o'rnatish uchun). Narxlar har doim internetdan. */
-const CACHE = 'ds-v2';
-const SHELL = ['./', 'index.html', 'css/style.css', 'js/data.js', 'js/signal.js', 'js/app.js', 'icon.svg', 'icon-192.png', 'manifest.webmanifest'];
+const CACHE = 'ds-v3';
+const SHELL = ['./', 'index.html', 'css/style.css', 'js/data.js', 'js/signal.js', 'js/app.js', 'js/bot.js', 'js/bot-ui.js', 'icon.svg', 'icon-192.png', 'manifest.webmanifest'];
 
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', e => {
