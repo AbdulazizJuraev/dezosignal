@@ -6,7 +6,7 @@
    - Kompyuterda (localhost) — server.js orqali
    ============================================================ */
 
-const DS_PROXY = 'https://pay.2-29-60-133.sslip.io';
+const DS_PROXY = 'https://pay.dezomax.uz';
 const DS_LOCAL = /^(localhost|127\.0\.0\.1)$/.test(location.hostname);
 const DS_APP = !!(window.Capacitor && window.Capacitor.isNativePlatform && window.Capacitor.isNativePlatform());
 
